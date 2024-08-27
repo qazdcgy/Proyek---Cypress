@@ -4,7 +4,7 @@ const cheerio = require("cheerio");
 const config = {
   imap: {
     user: "newbie2346@gmail.com",
-    password: "xxxx xxxx xxxx", // Gantilah dengan kata sandi aplikasi jika 2FA diaktifkan
+    password: "xxxx xxxx xxxx", // Password aplikasi gmail
     host: "imap.gmail.com",
     port: 993,
     tls: true,
