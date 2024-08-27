@@ -36,10 +36,10 @@ const getOtpFromEmail = async () => {
       const body = email.parts.filter((part) => part.which === "TEXT")[0].body;
 
       const $ = cheerio.load(body);
-      const teks = $("h1").text(); // Mengambil teks dari elemen <h1>
+      const teks = $("h1").text();
       const otpCode = teks.slice(-5);
 
-      await connection.addFlags([emailId], ["\\Seen"]); // Menandai email sebagai terbaca
+      await connection.addFlags([emailId], ["\\Seen"]);
 
       return otpCode;
     } else {
