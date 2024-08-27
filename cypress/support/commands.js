@@ -25,5 +25,14 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 Cypress.Commands.add("fillInput", (selector, text) => {
-  cy.get(selector).should("be.visible").and("not.be.disabled").type(text);
+  cy.get(selector)
+    .should("be.visible")
+    .and("not.be.disabled")
+    .then(($input) => {
+      if (text === "") {
+        cy.wrap($input).clear();
+      } else {
+        cy.wrap($input).type(text);
+      }
+    });
 });
