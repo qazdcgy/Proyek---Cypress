@@ -37,43 +37,9 @@ Cypress.Commands.add("fillInput", (selector, text) => {
     });
 });
 
-Cypress.Commands.add("login", () => {
-  cy.visit("https://hcm-dev.trustmedis.net/");
-  cy.wait(500);
-
-  cy.get('[data-cy="email"]')
-    .should("be.visible")
-    .and("not.be.disabled")
-    .type("newbie2346@gmail.com");
-  cy.get('[data-cy="password"]')
-    .should("be.visible")
-    .and("not.be.disabled")
-    .type("!Konfirmasi1");
-
-  cy.get('[data-cy="branch"]')
-    .should("be.visible")
-    .and("not.be.disabled")
-    .click();
-
-  cy.get('[role="presentation"]')
-    .should("be.visible")
-    .contains("HIS 1")
-    .click();
-
-  cy.get('[data-cy="submit"]').click();
-
-  cy.get(".mantine-Modal-body").contains("Okay").should("be.visible");
-  cy.contains("button", "Okay").click();
-
-  cy.task("getOtp").then((otpCode) => {
-    if (otpCode) {
-      cy.get(".mantine-PinInput-input").each((input, index) => {
-        cy.wrap(input).type(otpCode.charAt(index));
-      });
-
-      cy.get('[data-cy="submit"]').click();
-    } else {
-      throw new Error("OTP not found");
-    }
-  });
+Cypress.Commands.add("loginCookie", () => {
+  cy.setCookie(
+    "__session",
+    "eyJ1c2VyQ3JlZCI6bnVsbCwiYWNjZXNzVG9rZW4iOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKbGJXRnBiQ0k2SW01bGQySnBaVEl6TkRaQVoyMWhhV3d1WTI5dElpd2ljM1ZpSWpvaU1UWWlMQ0p5YjJ4bGN5STZXeUpCWkcxcGJpSmRMQ0p5YjJ4bElqb2lNU0lzSW1saGRDSTZNVGN5TlRJMU56SXpOeXdpWlhod0lqb3hOekkxTWpVNE5ETTNmUS53eEQ4VlhSYXZ2YWZFdy1BUEo3XzJyZzlpZDdwQm56QkVfYmJVaXNYdVlvIiwiYnJhbmNoIjoiaGlzMSJ9.%2F4XQ428OCt1MVu0ii9OrOU%2Fp6wZCwdrKw8gb877gVHQ"
+  );
 });
