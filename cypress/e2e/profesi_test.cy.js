@@ -2,7 +2,9 @@ describe("Master -> Profesi", () => {
   beforeEach(() => {
     cy.loginCookie();
     cy.visit("https://hcm-dev.trustmedis.net");
-    cy.wait(5000);
+  });
+
+  it("Tambah Data Profesi", () => {
     cy.contains("button", "Master").click();
     cy.wait(5000);
     cy.contains("button", "Profesi").scrollIntoView().click();
@@ -53,6 +55,7 @@ describe("Master -> Profesi", () => {
   //     .should("be.visible")
   //     .and("contain", "Hapus Data");
 
-  //   cy.get('button[aria-label="Delete"]').click();
-  // });
+  cy.get('button[data-variant="outline"][type="submit"]')
+    .contains("Logout")
+    .click();
 });
