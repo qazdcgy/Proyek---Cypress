@@ -54,12 +54,5 @@ describe("Master -> Profesi", () => {
       .and("contain", "Hapus Data");
 
     cy.get('button[aria-label="Delete"]').click();
-
-    cy.get("Faiqah");
-    cy.get("Wahyudi. Z");
-
-    cy.tes();
   });
-
-  cy.get('button[aria-label="]');
 });
