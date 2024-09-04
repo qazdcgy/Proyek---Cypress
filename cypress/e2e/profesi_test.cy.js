@@ -60,4 +60,6 @@ describe("Master -> Profesi", () => {
 
     cy.tes();
   });
+
+  cy.get('button[aria-label="]');  
 });
