@@ -55,4 +55,6 @@ describe("Master -> Profesi", () => {
 
     cy.get('button[aria-label="Delete"]').click();
   });
+
+  it("filter data", () => {});
 });
