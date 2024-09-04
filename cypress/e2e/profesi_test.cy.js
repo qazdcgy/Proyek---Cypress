@@ -57,5 +57,7 @@ describe("Master -> Profesi", () => {
 
     cy.get("Faiqah");
     cy.get("Wahyudi. Z");
+
+    cy.tes();
   });
 });
