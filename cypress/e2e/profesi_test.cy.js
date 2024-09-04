@@ -58,4 +58,6 @@ describe("Master -> Profesi", () => {
     cy.get("Faiqah");
     cy.get("Wahyudi. Z");
   });
+
+  cy.get('button[aria-label="]');  
 });
