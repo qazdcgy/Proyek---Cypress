@@ -57,4 +57,8 @@ describe("Master -> Profesi", () => {
 
   });
 
+  it("search data", () => {
+    
+  }) 
+
 });
