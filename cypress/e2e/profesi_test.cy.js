@@ -56,5 +56,6 @@ describe("Master -> Profesi", () => {
     cy.get('button[aria-label="Delete"]').click();
 
     cy.get("Faiqah");
+    cy.get("Wahyudi. Z");
   });
 });
